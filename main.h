@@ -1,12 +1,14 @@
-/*
- * Put your comment header here
- */
+/***********************************************************
+Name: Justen Crockett
+Assignment: 05
+Purpose:
+***********************************************************/
 
 #ifndef MAIN_H
 #define MAIN_H
 
 #include <iostream>
-//#include "bintree.h"
+#include "bintree.h"
 #include "data.h"
 #include "functions.h"
 

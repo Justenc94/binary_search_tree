@@ -1,6 +1,8 @@
-/*
- * Put your comment header here
- */
+/***********************************************************
+Name: Justen Crockett
+Assignment: 05
+Purpose:
+***********************************************************/
 
 #include "functions.h"
 

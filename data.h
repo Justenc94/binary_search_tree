@@ -1,6 +1,8 @@
-/*
- * Put your comment header here
- */
+/***********************************************************
+Name: Justen Crockett
+Assignment: 05
+Purpose:
+***********************************************************/
 
 #ifndef DATA_H
 #define DATA_H
