@@ -41,6 +41,10 @@ void BinTree::displayTree() {
     cout << "===============================================" << endl;
 }
 
+int BinTree::getCount() {
+    return count;
+}
+
 void BinTree::displayPreOrder() {
     displayPreOrder(root);
 }
@@ -57,13 +61,13 @@ void BinTree::displayInOrder() {
 //**********************************************   PRIVATE METHODS  **********************************************
 
 bool BinTree::addNode(int id, string info, DataNode *add_node) {
+    auto *temp_node = new DataNode;
+    temp_node->data.id = id;
+    temp_node->data.information = info;
+    temp_node->left = temp_node->right = nullptr;
 
     if(id < add_node->data.id){
         if(!add_node->left){
-            auto *temp_node = new DataNode;
-            temp_node->data.id = id;
-            temp_node->data.information = info;
-            temp_node->left = temp_node->right = nullptr;
             add_node->left = temp_node;
             count++;
         }else{
@@ -71,10 +75,6 @@ bool BinTree::addNode(int id, string info, DataNode *add_node) {
         }
     }else{
         if(!add_node->right){
-            auto *temp_node = new DataNode;
-            temp_node->data.id = id;
-            temp_node->data.information = info;
-            temp_node->left = temp_node->right = nullptr;
             add_node->right = temp_node;
             count++;
         }else{

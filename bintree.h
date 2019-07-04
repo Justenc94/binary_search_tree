@@ -24,9 +24,9 @@ public:
     void displayPostOrder();
     void displayInOrder();
     void displayTree();
+    int getCount();
 
     //TODO: Build isEmpty Method
-    //TODO: Build getCount Method
     //TODO: Build getRootData Method
     //TODO: Build clear Method
     //TODO: Build getNode Method
