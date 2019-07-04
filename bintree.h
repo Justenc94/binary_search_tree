@@ -20,14 +20,11 @@ public:
     //~BinTree();
 
     bool addNode(int, string);
+    void displayPreOrder();
+    void displayPostOrder();
+    void displayInOrder();
+    void displayTree();
 
-
-
-
-    //TODO: Build displayPreOrder Method
-    //TODO: Build displayPostOrder Method
-    //TODO: Build displayInOrder Method
-    //TODO: Build displayTree Method
     //TODO: Build isEmpty Method
     //TODO: Build getCount Method
     //TODO: Build getRootData Method
@@ -44,6 +41,9 @@ private:
 
     //overloaded private wrapper functions
     bool addNode(int, string, DataNode*);
+    void displayPreOrder(DataNode*);
+    void displayPostOrder(DataNode*);
+    void displayInOrder(DataNode*);
 
 
     //TODO: Build private overload method: clear
@@ -51,9 +51,7 @@ private:
     //TODO: Build private overload method: getNode
     //TODO: Build private overload method: contains
     //TODO: Build private overload method: getHeight
-    //TODO: Build private overload method: displayPreOrder
-    //TODO: Build private overload method: displayPostOrder
-    //TODO: Build private overload method: displayTree
+
 
 
 };

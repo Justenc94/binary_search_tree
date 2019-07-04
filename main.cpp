@@ -71,7 +71,8 @@ int main(int argc, char** argv) {
         cout << endl;
     }
     cout << endl;
-//    binSearchTree->displayTree();
+
+    binSearchTree->displayTree();
 //
 //    cout << "Testing getRootData() on non-empty tree" << endl;
 //    cout << "==============================================" << endl;
