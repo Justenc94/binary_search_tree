@@ -40,10 +40,10 @@ public:
 
 private:
     int count;
-    DataNode *root;
+    struct DataNode *root;
 
-    //overloaded wrapper functions
-    bool addNode(int, string, DataNode);
+    //overloaded private wrapper functions
+    bool addNode(int, string, DataNode*);
 
 
     //TODO: Build private overload method: clear

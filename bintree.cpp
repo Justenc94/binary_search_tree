@@ -14,47 +14,62 @@ BinTree::BinTree() {
 //**********************************************   PUBLIC METHODS  **********************************************
 
 bool BinTree::addNode(int id, string info){
+    auto *tempNode = new DataNode;
+
     if(root == nullptr){
-        root = new DataNode;
-        root->data.id = id;
-        root->data.information = info;
-        root->left = root->right = nullptr;
-        cout << "ADDED ROOT: " << info << endl;         //DEBUG ONLY ************* NEED TO REMOVE
+        tempNode->data.id = id;
+        tempNode->data.information = info;
+        tempNode->left = tempNode->right = nullptr;
+        root = tempNode;
+        count++;
         return true;
     }else{
-        return addNode(id, info, *root);
+        return addNode(id, info, root);
     }
+
 }
 
 
 //**********************************************   PRIVATE METHODS  **********************************************
 
+//TODO: need to make sure that its accessing a pointer of root because method is never entering recursion
 
-bool BinTree::addNode(int id, string info, DataNode tempNode) {
-    if(tempNode.data.id > id){
-        if(tempNode.left == nullptr){
-            tempNode.left = new DataNode;
-            tempNode.left->data.id = id;
-            tempNode.left->data.information = info;
-            tempNode.left = tempNode.right = nullptr;
-            cout << "ADDED LEFT" << info << endl;           //DEBUG ONLY ************* NEED TO REMOVE
-            return true;
+bool BinTree::addNode(int id, string info, DataNode *add_node) {
+
+    if(!add_node->left){
+        cout << "\nLeft is null." << endl;
+    }else{
+        cout << "\nLeft is NOT null." << endl;
+    }
+
+    if(!add_node->right){
+        cout << "Right is null." << endl;
+    }else{
+        cout << "Right is NOT null." << endl;
+    }
+
+    if(id < add_node->data.id){
+        cout << "LEFT" << endl;
+        if(!add_node->left){
+            auto *temp_node = new DataNode;
+            temp_node->data.id = id;
+            temp_node->data.information = info;
+            add_node->left = temp_node;
+            count++;
         }else{
-            addNode(id, info, *tempNode.left);
-        }
-    }else if(tempNode.data.id < id){
-        if(tempNode.right == nullptr){
-            tempNode.right = new DataNode;
-            tempNode.right->data.id = id;
-            tempNode.right->data.information = info;
-            tempNode.right = tempNode.right = nullptr;
-            cout << "ADDED RIGHT" << info << endl;          //DEBUG ONLY ************* NEED TO REMOVE
-            return true;
-        }else{
-            addNode(id, info, *tempNode.right);
+            addNode(id, info, add_node->left);
         }
     }else{
-        return false;
+        cout << "RIGHT" << endl;
+        if(!add_node->right){
+            auto *temp_node = new DataNode;
+            temp_node->data.id = id;
+            temp_node->data.information = info;
+            add_node->right = temp_node;
+            count++;
+        }else{
+            addNode(id, info, add_node->right);
+        }
     }
 }
 
