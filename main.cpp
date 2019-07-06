@@ -24,7 +24,7 @@ int main(int argc, char** argv) {
      */
     BinTree *binSearchTree = new BinTree;
     cout << endl << "Binary Search Tree created" << endl << endl;
-//    binSearchTree->displayTree();
+    binSearchTree->displayTree();
 //
 //    /*
 //     *  testing methods on empty tree

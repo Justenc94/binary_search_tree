@@ -11,6 +11,10 @@ BinTree::BinTree() {
     root = nullptr;
 }
 
+BinTree::~BinTree() {
+    clear();
+}
+
 //**********************************************   PUBLIC METHODS  **********************************************
 
 bool BinTree::addNode(int id, string info){
@@ -32,17 +36,33 @@ bool BinTree::addNode(int id, string info){
 void BinTree::displayTree() {
     cout << "DISPLAY TREE" << endl;
     cout << "===============================================" << endl;
-    cout << "Pre-Order Traversal" << endl;
+    isEmpty() ? cout << "Tree is NOT empty" << endl : cout << "Tree is empty" << endl;
+    cout << "Height: " << getHeight() << endl;
+    cout << "Node Count: " << getCount() << endl;
+    cout << "\nPre-Order Traversal" << endl;
     displayPreOrder();
-    cout << "In-Order Traversal" << endl;
+    cout << "\nIn-Order Traversal" << endl;
     displayInOrder();
-    cout << "Post-Order Traversal" << endl;
+    cout << "\nPost-Order Traversal" << endl;
     displayPostOrder();
     cout << "===============================================" << endl;
 }
 
 int BinTree::getCount() {
     return count;
+}
+
+int BinTree::getHeight(){
+    getHeight(root);
+}
+
+
+bool BinTree::isEmpty() {
+    if(count != 0){
+        return true;
+    }else{
+        return false;
+    }
 }
 
 void BinTree::displayPreOrder() {
@@ -55,6 +75,10 @@ void BinTree::displayPostOrder() {
 
 void BinTree::displayInOrder() {
     displayInOrder(root);
+}
+
+void BinTree::clear() {
+    clear(root);
 }
 
 
@@ -87,7 +111,7 @@ void BinTree::displayPreOrder(DataNode *print_node) {
     if(!print_node){
         return;
     }
-    cout << "ID: " << print_node->data.id << "\tInformation: " << print_node->data.information << endl;
+    cout << print_node->data.id << " " << print_node->data.information << endl;
     displayPreOrder(print_node->left);
     displayPreOrder(print_node->right);
 }
@@ -98,7 +122,7 @@ void BinTree::displayPostOrder(DataNode *print_node) {
     }
     displayPostOrder(print_node->left);
     displayPostOrder(print_node->right);
-    cout << "ID: " << print_node->data.id << "\tInformation: " << print_node->data.information << endl;
+    cout << print_node->data.id << " " << print_node->data.information << endl;
 }
 
 void BinTree::displayInOrder(DataNode *print_node) {
@@ -106,7 +130,29 @@ void BinTree::displayInOrder(DataNode *print_node) {
         return;
     }
     displayInOrder(print_node->left);
-    cout << "ID: " << print_node->data.id << "\tInformation: " << print_node->data.information << endl;
+    cout << print_node->data.id << " " << print_node->data.information << endl;
     displayInOrder(print_node->right);
 }
 
+int BinTree::getHeight(DataNode *temp_node){
+    if(!temp_node){
+        return 0;
+    }
+    return 1 + std::max(getHeight(temp_node->left), getHeight(temp_node->right));
+}
+
+void BinTree::clear(DataNode *temp_node) {
+    if(temp_node != nullptr){
+        clear(temp_node->left);
+        clear(temp_node->right);
+        delete temp_node;
+        if(temp_node->left != nullptr){
+            temp_node->left = nullptr;
+        }
+        if(temp_node->right != nullptr){
+            temp_node->right = nullptr;
+        }
+        root = nullptr;
+        count = 0;
+    }
+}

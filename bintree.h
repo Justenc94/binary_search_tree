@@ -17,7 +17,7 @@ public:
     BinTree();
 
     //destructor
-    //~BinTree();
+    ~BinTree();
 
     bool addNode(int, string);
     void displayPreOrder();
@@ -25,10 +25,11 @@ public:
     void displayInOrder();
     void displayTree();
     int getCount();
+    bool isEmpty();
+    void clear();
+    int getHeight();
 
-    //TODO: Build isEmpty Method
     //TODO: Build getRootData Method
-    //TODO: Build clear Method
     //TODO: Build getNode Method
     //TODO: Build contains Method
     //TODO: Build getHeight Method
@@ -44,6 +45,8 @@ private:
     void displayPreOrder(DataNode*);
     void displayPostOrder(DataNode*);
     void displayInOrder(DataNode*);
+    void clear(DataNode*);
+    int getHeight(DataNode*);
 
 
     //TODO: Build private overload method: clear
