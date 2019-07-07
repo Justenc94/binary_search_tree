@@ -28,11 +28,10 @@ public:
     bool isEmpty();
     void clear();
     int getHeight();
+    bool getRootData(Data*);
+    bool getNode(Data*, int);
+    bool contains(int);
 
-    //TODO: Build getRootData Method
-    //TODO: Build getNode Method
-    //TODO: Build contains Method
-    //TODO: Build getHeight Method
     //TODO: Build removeNode Method
 
 
@@ -47,13 +46,10 @@ private:
     void displayInOrder(DataNode*);
     void clear(DataNode*);
     int getHeight(DataNode*);
+    bool getNode(Data*, int, DataNode*);
+    bool contains(int, DataNode*);
 
-
-    //TODO: Build private overload method: clear
-    //TODO: Build private overload method: removeNode
-    //TODO: Build private overload method: getNode
     //TODO: Build private overload method: contains
-    //TODO: Build private overload method: getHeight
 
 
 

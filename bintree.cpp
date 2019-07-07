@@ -33,10 +33,30 @@ bool BinTree::addNode(int id, string info){
 
 }
 
+bool BinTree::getRootData(Data *temp_data) {
+    if(root){
+        temp_data->id =  root->data.id;
+        temp_data->information =  root->data.information;
+        return true;
+    }else{
+        temp_data->id = -1;
+        temp_data->information = "";
+        return false;
+    }
+}
+
+bool BinTree::getNode(Data *temp_data, int id) {
+    getNode(temp_data, id, root);
+}
+
+bool BinTree::contains(int id) {
+    contains(id, root);
+}
+
 void BinTree::displayTree() {
     cout << "DISPLAY TREE" << endl;
     cout << "===============================================" << endl;
-    isEmpty() ? cout << "Tree is NOT empty" << endl : cout << "Tree is empty" << endl;
+    isEmpty() ? cout << "Tree is empty" << endl : cout << "Tree is NOT empty" << endl;
     cout << "Height: " << getHeight() << endl;
     cout << "Node Count: " << getCount() << endl;
     cout << "\nPre-Order Traversal" << endl;
@@ -45,7 +65,7 @@ void BinTree::displayTree() {
     displayInOrder();
     cout << "\nPost-Order Traversal" << endl;
     displayPostOrder();
-    cout << "===============================================" << endl;
+    cout << "===============================================" << endl << endl;
 }
 
 int BinTree::getCount() {
@@ -58,7 +78,7 @@ int BinTree::getHeight(){
 
 
 bool BinTree::isEmpty() {
-    if(count != 0){
+    if(count == 0){
         return true;
     }else{
         return false;
@@ -106,6 +126,35 @@ bool BinTree::addNode(int id, string info, DataNode *add_node) {
         }
     }
 }
+
+bool BinTree::getNode(Data *temp_data, int id, DataNode *temp_root) {
+    if(!temp_root){
+        return false;
+    }
+    if(temp_root->data.id == id){
+        temp_data->id = temp_root->data.id;
+        temp_data->information = temp_root->data.information;
+        return true;
+    }
+    bool searchFlagLeft = getNode(temp_data, id, temp_root->left);
+    bool searchFlagRight = getNode(temp_data, id, temp_root->right);
+
+    return searchFlagLeft || searchFlagRight;
+}
+
+bool BinTree::contains(int id, DataNode *temp_root) {
+    if(!temp_root){
+        return false;
+    }
+    if(temp_root->data.id == id){
+        return true;
+    }
+    bool searchFlagLeft = contains(id, temp_root->left);
+    bool searchFlagRight = contains(id, temp_root->right);
+
+    return searchFlagLeft || searchFlagRight;
+}
+
 
 void BinTree::displayPreOrder(DataNode *print_node) {
     if(!print_node){
