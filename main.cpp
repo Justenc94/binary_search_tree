@@ -29,12 +29,12 @@ int main(int argc, char** argv) {
     /*
      *  testing methods on empty tree
      */
-    cout << "Testing removeNode() on empty tree" << endl;
-    cout << "==============================================" << endl;
-    tempid = 10;
-    cout << "removing " << tempid << "... ";
-    binSearchTree->removeNode(tempid) ? cout << "removed" << endl : cout << "failed" << endl;
-    cout << endl;
+//    cout << "Testing removeNode() on empty tree" << endl;
+//    cout << "==============================================" << endl;
+//    tempid = 10;
+//    cout << "removing " << tempid << "... ";
+//    binSearchTree->removeNode(tempid) ? cout << "removed" << endl : cout << "failed" << endl;
+//    cout << endl;
 
 //    cout << "Testing getRootData() on empty tree" << endl;
 //    cout << "==============================================" << endl;

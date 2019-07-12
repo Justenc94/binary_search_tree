@@ -54,9 +54,9 @@ private:
     int getHeight(DataNode*);
     bool getNode(Data*, int, DataNode*);
     bool contains(int, DataNode*);
-    DataNode minValueNode(DataNode*);
+    int minValueNode(DataNode*);
     DataNode max(DataNode*);
-    DataNode removeNode(int, DataNode*);
+    DataNode *removeNode(int, DataNode*);
 
     //TODO: Build private overload method: removeNode
 
