@@ -237,13 +237,15 @@ DataNode* BinTree::removeNode(int id, DataNode *temp_root) {
         temp_root->right = removeNode(id, temp_root->right);
     }
 
-    //case: 1 or less children
+    //case: 1 or less children and left is null
     else if (temp_root->left == nullptr) {
         DataNode* result = temp_root->right;
         delete temp_root;
         count--;
         temp_root = result;
     }
+
+    //case: 1 or less children and right is null
     else if (temp_root->right == nullptr) {
         DataNode* result = temp_root->left;
         delete temp_root;
